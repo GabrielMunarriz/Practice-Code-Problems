@@ -1,0 +1,80 @@
+START
+----------------------------------
+LISTS: (1, L2) [Node L1] -> (2, L3) [Node L2] -> (3, NULLPTR) [Node L3] AND (3, R2) [Node R1]-> (4, NULLPTR) [Node R2]
+
+left = (1, L2) [Node L1]
+right = (3, R2) [Node R1]
+
+
+STEP 1
+----------------------------------
+left->data < right->data.....therefore.....
+
+root = left = (1, L2) [Node L1]
+left = left->next = (2, L3) [Node L2]
+right = (3, R2) [Node R1]
+
+
+STEP 2
+----------------------------------
+current = root = (1, L2) [Node L1]
+
+
+i1 
+----------------------------------
+left->data < right-> data....therefore....
+
+current->next = left = Node L2 (L1 now points to L2 so nothing changed)
+left = left->next = (3, NULLPTR) [Node L3]
+right = (3, R2) [Node R1]
+
+current = current->next = (2, L3) [Node L2]
+
+CURRENT LISTS:
+L1 -> L2 -> L3
+R1 -> R2
+
+
+i2
+----------------------------------
+left->data !< right-> data....therefore....
+
+current->next = right = Node R1 (L2 now points to R1)
+
+left = (3, NULLPTR) [Node L3]
+right = right->next = (4, NULLPTR) [Node R2]
+
+current = current->next = (3, R2) [Node R1]
+
+CURRENT LISTS:
+L1 -> L2 -> R1
+L3
+R2
+
+
+i3
+----------------------------------
+left->data < right-> data....therefore....
+
+current->next = left = Node L3 (R1 now points to L3)
+
+left = left->next = NULLPTR
+right = (4, NULLPTR) [Node R2]
+
+current = current->next = (3, NULLPTR) [Node L3]
+
+CURRENT LISTS:
+L1 -> L2 -> R1 -> L3
+R2
+
+
+STEP 3
+----------------------------------
+left = NULLPTR....so
+current->next = right = Node R2 (L3 now points to R2)
+
+CURRENT LISTS:
+L1 -> L2 -> R1 -> L3 -> R2
+1 -> 2 -> 3 -> 3 -> 4
+
+Return root (which returns Node L1, which is linked to the rest).
